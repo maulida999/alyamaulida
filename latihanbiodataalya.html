@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata Siswa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fffef7;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #bbdefb;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbdefb;
+            border-radius: 6px;
+            background-color: #f5f9ff;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        #submitBtn {
+            background-color: #42a5f5;
+            color: white;
+        }
+
+        #submitBtn:hover {
+            background-color: #1e88e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #resetBtn {
+            background-color: #ef9a9a;
+            color: white;
+        }
+
+        #resetBtn:hover {
+            background-color: #e57373;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .output {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            display: none;
+            border-left: 5px solid #42a5f5;
+        }
+
+        .output h2 {
+            text-align: center;
+            color: #1565c0;
+            border-bottom: 1px solid #bbdefb;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .output-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .output-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e3f2fd;
+        }
+
+        .output-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+            color: #1565c0;
+        }
+
+        .output-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DATA SISWA SMK AL-GHIFARI</h1>
+
+        <form id="biodataForm">
+            <div class="form-group">
+                <label for="nisn">NISN:</label>
+                <input type="text" id="nisn" name="nisn" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nama">NAMA:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+
+            <div class="form-group">
+                <label>JENIS KELAMIN:</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="laki" name="jenis_kelamin" value="Laki-laki" required>
+                        <label for="laki">Laki-laki</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                        <label for="perempuan">Perempuan</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="agama">AGAMA:</label>
+                <select id="agama" name="agama" required>
+                    <option value="">Pilih Agama</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Konghucu">Konghucu</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">STATUS:</label>
+                <select id="status" name="status" required>
+                    <option value="">Pilih Status</option>
+                    <option value="Kawin">Kawin</option>
+                    <option value="Belum Kawin">Belum Kawin</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jurusan">JURUSAN:</label>
+                <select id="jurusan" name="jurusan" required>
+                    <option value="">Pilih Jurusan</option>
+                    <option value="RPL">RPL</option>
+                    <option value="AKL">AKL</option>
+                    <option value="FKK">FKK</option>
+                    <option value="OTKP">OTKP</option>
+                    <option value="TBSM">TBSM</option>
+                    <option value="TKR">TKR</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="komentar">KOMENTAR:</label>
+                <textarea id="komentar" name="komentar" placeholder="Tulis komentar Anda di sini..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="submitBtn">KIRIM</button>
+                <button type="reset" id="resetBtn">RESET</button>
+            </div>
+        </form>
+
+        <div class="output" id="outputSection">
+            <h2>DATA SISWA SMK AL-GHIFARI</h2>
+            <table class="output-table">
+                <tr>
+                    <td>NISN</td>
+                    <td id="outputNisn">-</td>
+                </tr>
+                <tr>
+                    <td>NAMA</td>
+                    <td id="outputNama">-</td>
+                </tr>
+                <tr>
+                    <td>JENIS KELAMIN</td>
+                    <td id="outputJenisKelamin">-</td>
+                </tr>
+                <tr>
+                    <td>AGAMA</td>
+                    <td id="outputAgama">-</td>
+                </tr>
+                <tr>
+                    <td>STATUS</td>
+                    <td id="outputStatus">-</td>
+                </tr>
+                <tr>
+                    <td>JURUSAN</td>
+                    <td id="outputJurusan">-</td>
+                </tr>
+                <tr>
+                    <td>KOMENTAR</td>
+                    <td id="outputKomentar">-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            // Validasi form
+            if (!document.getElementById('biodataForm').checkValidity()) {
+                alert('Harap lengkapi semua field yang wajib diisi!');
+                return;
+            }
+
+            // Ambil nilai dari form
+            const nisn = document.getElementById('nisn').value;
+            const nama = document.getElementById('nama').value;
+            const jenisKelamin = document.querySelector('input[name="jenis_kelamin"]:checked').value;
+            const agama = document.getElementById('agama').value;
+            const status = document.getElementById('status').value;
+            const jurusan = document.getElementById('jurusan').value;
+            const komentar = document.getElementById('komentar').value;
+
+            // Tampilkan di output
+            document.getElementById('outputNisn').textContent = nisn;
+            document.getElementById('outputNama').textContent = nama;
+            document.getElementById('outputJenisKelamin').textContent = jenisKelamin;
+            document.getElementById('outputAgama').textContent = agama;
+            document.getElementById('outputStatus').textContent = status;
+            document.getElementById('outputJurusan').textContent = jurusan;
+            document.getElementById('outputKomentar').textContent = komentar || '-';
+
+            // Tampilkan output section
+            document.getElementById('outputSection').style.display = 'block';
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function () {
+            // Sembunyikan output section saat form direset
+            document.getElementById('outputSection').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
